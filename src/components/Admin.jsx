@@ -22,7 +22,7 @@ const Admin = ({ onBackToHome }) => {
   const fetchInquiries = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/inquiries');
+      const res = await fetch('https://anchor-shubham-atre.onrender.com/api/inquiries');
       const data = await res.json();
       setInquiries(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -34,7 +34,7 @@ const Admin = ({ onBackToHome }) => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/inquiries/${id}/status`, {
+      const res = await fetch(`https://anchor-shubham-atre.onrender.com/api/inquiries/${id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -50,7 +50,7 @@ const Admin = ({ onBackToHome }) => {
   const handleDelete = async (id) => {
     if (!window.confirm(`Are you sure you want to delete lead #${id}?`)) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/inquiries/${id}`, {
+      const res = await fetch(`https://anchor-shubham-atre.onrender.com/api/inquiries/${id}`, {
         method: 'DELETE'
       });
       if (res.ok) {
@@ -188,11 +188,11 @@ const Admin = ({ onBackToHome }) => {
                   inquiries.map((inq) => {
                     const cleanPhone = (inq.phone || '').replace(/[^0-9]/g, '');
                     const currentStatus = inq.status || 'New';
-                    
-                    const statusColor = 
+
+                    const statusColor =
                       currentStatus === 'Booked' ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40' :
-                      currentStatus === 'Contacted' ? 'bg-amber-500/20 text-amber-400 border-amber-500/40' :
-                      'bg-sky-500/20 text-sky-400 border-sky-500/40';
+                        currentStatus === 'Contacted' ? 'bg-amber-500/20 text-amber-400 border-amber-500/40' :
+                          'bg-sky-500/20 text-sky-400 border-sky-500/40';
 
                     return (
                       <tr key={inq.id} className="hover:bg-slate-800/40 transition-colors">
