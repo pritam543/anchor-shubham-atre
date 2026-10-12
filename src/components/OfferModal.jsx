@@ -1,14 +1,22 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, Gift, CheckCircle, MessageSquare } from 'lucide-react';
+import { X, Gift, CheckCircle, Sparkles, Send } from 'lucide-react';
 
 const OfferModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
+  const handleClaimOffer = () => {
+    onClose();
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-        
+
         <motion.div
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -28,7 +36,7 @@ const OfferModal = ({ isOpen, onClose }) => {
           </div>
 
           <h3 className="text-3xl font-black font-funky text-[#1E293B] mb-2">
-            UNLOCK <span className="text-[#FF007F]">FLAT 20% OFF!</span> ??
+            UNLOCK <span className="text-[#FF007F]">FLAT 20% OFF!</span> 🎉
           </h3>
 
           <p className="text-[#475569] font-semibold text-sm mb-6">
@@ -47,15 +55,12 @@ const OfferModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <a
-            href="https://wa.me/919754133022?text=Hi%20Shubham,%20I%20want%20to%20claim%20the%20Special%2020%25%20Offer!"
-            target="_blank"
-            rel="noreferrer"
-            onClick={onClose}
+          <button
+            onClick={handleClaimOffer}
             className="w-full bg-[#FF007F] hover:bg-[#D4AF37] text-white font-funky font-black py-4 rounded-2xl uppercase tracking-wider transition-all shadow-lg border-2 border-[#1E293B] flex items-center justify-center gap-2"
           >
-            <MessageSquare className="w-5 h-5" /> Claim Offer On WhatsApp Now
-          </a>
+            <Sparkles className="w-5 h-5" /> Claim Offer & Book Now
+          </button>
         </motion.div>
 
       </div>

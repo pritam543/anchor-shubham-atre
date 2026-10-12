@@ -5,9 +5,9 @@ import { Calendar, Mic, Sparkles, PartyPopper, Flame } from 'lucide-react';
 const Hero = ({ onOpenOffer }) => {
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center text-white overflow-hidden">
-      
+
       {/* Background Image with Adjustable Opacity */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-500"
         style={{ backgroundImage: `url('/images/Image1.jpeg')` }}
       />
@@ -20,7 +20,7 @@ const Hero = ({ onOpenOffer }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -50,9 +50,7 @@ const Hero = ({ onOpenOffer }) => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a
-                href="https://wa.me/919754133022?text=Hello%20Anchor%20Shubham,%20I%20want%20to%20book%20a%20show!"
-                target="_blank"
-                rel="noreferrer"
+                href="#contact"
                 className="w-full sm:w-auto bg-[#FF007F] hover:bg-[#D4AF37] text-white px-8 py-4 rounded-full font-black font-funky text-sm uppercase tracking-wider transition-all transform hover:scale-105 shadow-xl border-2 border-white flex items-center justify-center gap-2"
               >
                 <Calendar className="w-5 h-5" />
