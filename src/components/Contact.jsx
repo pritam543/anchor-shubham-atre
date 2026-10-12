@@ -87,32 +87,35 @@ const Contact = () => {
               </h3>
 
               <p className="text-slate-400 text-sm">
-                Feel free to connect via Inquiry Form or Email for quick date checks and bookings.
+                Feel free to connect via WhatsApp or Phone Call for quick inquiries and dates check.
               </p>
 
               <div className="space-y-4 pt-2">
-                <div
-                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50"
+                <a
+                  href="tel:+916232091754"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-amber-500/40 hover:bg-slate-800 transition-all group"
                 >
-                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg">
+                  <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-400 uppercase font-medium">Phone Support</p>
-                    <p className="text-base font-semibold text-white">+91 XXXXX XXXXX</p>
+                    <p className="text-xs text-slate-400 uppercase font-medium">Call Directly</p>
+                    <p className="text-base font-semibold text-white">+91 6232091754</p>
                   </div>
-                </div>
+                </a>
 
                 <a
-                  href="#contact"
+                  href="https://wa.me/916232091754?text=Hello%20Anchor%20Shubham,%20I%20want%20to%20inquire%20about%20event%20booking"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-emerald-500/40 hover:bg-slate-800 transition-all group"
                 >
                   <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-lg group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-400 uppercase font-medium">Online Inquiry</p>
-                    <p className="text-base font-semibold text-white">Fill Inquiry Form</p>
+                    <p className="text-xs text-slate-400 uppercase font-medium">WhatsApp Chat</p>
+                    <p className="text-base font-semibold text-white">+91 6232091754</p>
                   </div>
                 </a>
 

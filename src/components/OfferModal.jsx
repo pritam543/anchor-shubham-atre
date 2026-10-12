@@ -1,17 +1,9 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Gift, CheckCircle, Sparkles, Send } from 'lucide-react';
+import { X, Gift, CheckCircle, MessageSquare } from 'lucide-react';
 
 const OfferModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
-
-  const handleClaimOffer = () => {
-    onClose();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <AnimatePresence>
@@ -55,12 +47,15 @@ const OfferModal = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          <button
-            onClick={handleClaimOffer}
+          <a
+            href="https://wa.me/916232091754?text=Hi%20Shubham,%20I%20want%20to%20claim%20the%20Special%2020%25%20Offer!"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
             className="w-full bg-[#FF007F] hover:bg-[#D4AF37] text-white font-funky font-black py-4 rounded-2xl uppercase tracking-wider transition-all shadow-lg border-2 border-[#1E293B] flex items-center justify-center gap-2"
           >
-            <Sparkles className="w-5 h-5" /> Claim Offer & Book Now
-          </button>
+            <MessageSquare className="w-5 h-5" /> Claim Offer On WhatsApp Now
+          </a>
         </motion.div>
 
       </div>
