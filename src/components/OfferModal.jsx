@@ -28,7 +28,7 @@ const OfferModal = ({ isOpen, onClose }) => {
           </div>
 
           <h3 className="text-3xl font-black font-funky text-[#1E293B] mb-2">
-            UNLOCK <span className="text-[#FF007F]">FLAT 20% OFF!</span> 🎉
+            UNLOCK <span className="text-[#FF007F]">FLAT 20% OFF!</span> ??
           </h3>
 
           <p className="text-[#475569] font-semibold text-sm mb-6">
@@ -48,7 +48,7 @@ const OfferModal = ({ isOpen, onClose }) => {
           </div>
 
           <a
-            href="https://wa.me/916232091754?text=Hi%20Shubham,%20I%20want%20to%20claim%20the%20Special%2020%25%20Offer!"
+            href="https://wa.me/919754133022?text=Hi%20Shubham,%20I%20want%20to%20claim%20the%20Special%2020%25%20Offer!"
             target="_blank"
             rel="noreferrer"
             onClick={onClose}

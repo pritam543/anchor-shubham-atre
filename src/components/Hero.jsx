@@ -31,7 +31,7 @@ const Hero = ({ onOpenOffer }) => {
             <div className="inline-flex items-center gap-2 bg-[#FF007F] text-white border-2 border-white px-4 py-2 rounded-full shadow-lg transform -rotate-1">
               <PartyPopper className="w-5 h-5 animate-bounce" />
               <span className="text-xs sm:text-sm font-black tracking-widest font-funky uppercase">
-                🏆 Best Anchor in Indore & Stage Host 🎉
+                Best Anchor in Indore & Stage Host
               </span>
             </div>
 
@@ -50,7 +50,7 @@ const Hero = ({ onOpenOffer }) => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a
-                href="https://wa.me/916232091754"
+                href="https://wa.me/919754133022?text=Hello%20Anchor%20Shubham,%20I%20want%20to%20book%20a%20show!"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto bg-[#FF007F] hover:bg-[#D4AF37] text-white px-8 py-4 rounded-full font-black font-funky text-sm uppercase tracking-wider transition-all transform hover:scale-105 shadow-xl border-2 border-white flex items-center justify-center gap-2"
@@ -97,7 +97,7 @@ const Hero = ({ onOpenOffer }) => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-4 left-4 right-4 bg-[#1E293B]/90 backdrop-blur-md border-2 border-[#D4AF37] p-3 rounded-2xl text-center">
-                <p className="font-funky font-black text-sm text-[#FFBF00]">⚡ "No Boredom, Only High Voltage!"</p>
+                <p className="font-funky font-black text-sm text-[#FFBF00]">? "No Boredom, Only High Voltage!"</p>
               </div>
             </div>
           </motion.div>
