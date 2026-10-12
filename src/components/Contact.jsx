@@ -126,6 +126,7 @@ const Contact = () => {
                   <div className="p-3 bg-amber-500/10 text-amber-400 rounded-lg group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
+
                   <div>
                     <p className="text-xs text-slate-400 uppercase font-medium">Email Inquiries</p>
                     <p className="text-base font-semibold text-white">anchorshubhamatre@gmail.com</p>
