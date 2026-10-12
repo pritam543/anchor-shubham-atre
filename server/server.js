@@ -7,14 +7,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// TiDB Cloud Pool Connection with SSL Support
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 4000,
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'anchor_website_db',
+  database: process.env.DB_NAME || 'test',
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+  ssl: {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: false
+  }
 });
 
 // 1. Submit Form Lead
@@ -28,8 +34,8 @@ app.post('/api/inquiries', (req, res) => {
   const query = 'INSERT INTO inquiries (name, phone, event_type, event_date, message, status) VALUES (?, ?, ?, ?, ?, ?)';
   pool.query(query, [name, phone, eventType || null, eventDate || null, message || null, 'New'], (err, result) => {
     if (err) {
-      console.error('Database query error:', err);
-      return res.status(500).json({ error: 'Database save failed' });
+      console.error('Database query error:', err.message, err);
+      return res.status(500).json({ error: 'Database save failed', details: err.message });
     }
     res.status(201).json({ success: true, message: 'Inquiry saved successfully!', id: result.insertId });
   });
@@ -40,8 +46,8 @@ app.get('/api/inquiries', (req, res) => {
   const query = 'SELECT * FROM inquiries ORDER BY id DESC';
   pool.query(query, (err, rows) => {
     if (err) {
-      console.error('Database fetch error:', err);
-      return res.status(500).json({ error: 'Failed to fetch inquiries' });
+      console.error('Database fetch error:', err.message, err);
+      return res.status(500).json({ error: 'Failed to fetch inquiries', details: err.message });
     }
     res.json(rows);
   });
@@ -60,8 +66,8 @@ app.patch('/api/inquiries/:id/status', (req, res) => {
   const query = 'UPDATE inquiries SET status = ? WHERE id = ?';
   pool.query(query, [status, id], (err, result) => {
     if (err) {
-      console.error('Database update error:', err);
-      return res.status(500).json({ error: 'Failed to update status' });
+      console.error('Database update error:', err.message, err);
+      return res.status(500).json({ error: 'Failed to update status', details: err.message });
     }
     res.json({ success: true, message: 'Status updated successfully' });
   });
@@ -73,8 +79,8 @@ app.delete('/api/inquiries/:id', (req, res) => {
   const query = 'DELETE FROM inquiries WHERE id = ?';
   pool.query(query, [id], (err, result) => {
     if (err) {
-      console.error('Database delete error:', err);
-      return res.status(500).json({ error: 'Failed to delete inquiry' });
+      console.error('Database delete error:', err.message, err);
+      return res.status(500).json({ error: 'Failed to delete inquiry', details: err.message });
     }
     res.json({ success: true, message: 'Inquiry deleted successfully' });
   });
